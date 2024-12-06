@@ -1,0 +1,457 @@
+3) With returntype with No argument method
+===========================================
+Returntype is completely depends upon output datatype.
+
+Q) Write a java program to perform sum of two numbers using with returntype with no argument method?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		int k=sum();
+		System.out.println("sum of two numbers is ="+k);
+	}
+	
+	//callie method
+	public static int sum()
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		
+		//logic
+		int c = a+b;
+		
+		return c;
+		
+	}
+}
+
+
+Q) Write a java program to check given number is palindrome or not by using with return type with no argument method?
+
+Input:
+	121
+
+output:
+	It is a palindrome number 
+
+
+approach1
+---------
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		String k=palindrome();
+		System.out.println(k);
+	}
+	//callie method
+	public static String palindrome()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int temp=n;
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		
+		if(temp==rev)
+			return "It is a palindrome number";
+		else
+			return "It is not a palindrome number";
+		
+	}
+}
+
+approach2
+----------
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		boolean k=palindrome();
+		if(k)
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+	//callie method
+	public static boolean palindrome()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int temp=n;
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		
+		if(temp==rev)
+			return true;
+		else
+			return false;
+		
+	}
+}
+
+approach3
+---------
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		int k=palindrome();
+		if(k==1)
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+	//callie method
+	public static int palindrome()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int temp=n;
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		
+		if(temp==rev)
+			return 1;
+		else
+			return 0;
+		
+	}
+}
+
+
+4) With returntype with Argument method
+---------------------------------------
+
+Q) Write a java program to perform sum of two numbers using with returntype with argument method?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		
+		//caller method
+		System.out.println("sum of two number is ="+sum(a,b));
+		
+	}
+	//callie method
+	public static int sum(int a,int b)
+	{
+		int c = a + b;
+		
+		return c;
+	}
+}
+
+Q) write a java program to check given number is palindrome or not using with returntype with argument method?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		//caller method
+		if(palindrome(n))
+			System.out.println("It is palindrome number");
+		else
+			System.out.println("It is not palindrome number");
+		
+	}
+	//callie method
+	public static boolean palindrome(int n)
+	{
+		int temp=n;
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		if(temp==rev)
+			return true;
+		else
+			return false;
+	}
+	
+}
+
+Assignment
+===========
+Q) Write a java program to check given number is prime or not using 3 and 4th approach?
+
+
+Recursion
+===========
+A method which call itself for many number of times is called recursion.
+
+Recursion is similar to loopings.
+
+Whenever we use recursion we should not use loops.
+
+
+Q) Write a java program to display 10 natural numbers without using loops?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		display(1);
+		
+	}
+	//callie method
+	public static void display(int i)
+	{
+		if(i<=10)
+		{
+			System.out.print(i+" "); //1 2 3 4 5 6 7 8 9 10
+			
+			display(i+1);
+		}
+	}
+	
+}
+
+
+Q) Write a java program to perform sum of two numbers without using arthimetic operator ?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();//5
+		
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();//10
+		
+		//caller method
+		System.out.println(sum(a,b));
+	}
+	//callie method
+	public static int sum(int a,int b)
+	{
+		if(a==0)
+			return b;
+		
+		return sum(--a,++b);
+	}
+	
+}
+
+
+Q) Write a java program to display factorial of a given number using recursion?
+
+input:
+	5
+
+output:
+	120
+
+ex:
+---
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the  number :");
+		int n=sc.nextInt();//5
+		
+		//caller method
+		System.out.println(factorial(n));
+		
+	
+	}
+	//callie method
+	public static int factorial(int n)
+	{
+		if(n<0)
+			return -1;
+		
+		if(n==0)
+			return 1;
+		
+		return n*factorial(n-1);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,335 @@
+Q) Write a java program to identify and print all elements in an array that are greater 
+than both their immediate predecessors and successors, considering the first and 
+last elements as having only one neighbor? 
+ 
+Input: 
+  	1 3 20 4 75 0 90 
+ 
+Output: 
+ 	20  75  90
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,3,20,4,75,0,90};
+		
+		//first element
+		if(arr[0]>arr[1])
+		{
+			System.out.print(arr[0]+" ");
+		}
+		
+		//middle elements 
+		for(int i=1;i<=arr.length-2;i++)
+		{
+			if(arr[i]>arr[i-1] && arr[i]>arr[i+1])
+			{
+				System.out.print(arr[i]+" ");
+			}
+		}
+		
+		
+		//last element
+		if(arr[arr.length-1]>arr[arr.length-2])
+		{
+			System.out.println(arr[arr.length-1]+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to determine the smallest number of coins needed to total 86 rupees. 
+   Use the denominations provided in the array {1,2,5,10}? 
+ 
+Output: 
+ 	1 coin(s) of 1 rupee(s) 
+ 	1 coin(s) of 5 rupee(s) 
+ 	8 coin(s) of 10 rupee(s) 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] denominations={1,2,5,10};
+		int amount=86;
+		
+		//caller method 
+		int[] result=minimumCoins(denominations,amount);
+		
+		for(int i=0;i<result.length;i++)
+		{
+			if(result[i]>0)
+			{
+				System.out.println(result[i]+" coin(s) of "+denominations[i]+" rupee(s)"); 
+			}
+		}
+	
+	}
+	
+	//callie method 
+	public static int[] minimumCoins(int[] denominations,int amount)
+	{
+		int[] coinsCount=new int[denominations.length];
+		
+		//reading reverse
+		for(int i=denominations.length-1;i>=0;i--)
+		{
+			coinsCount[i]=amount/denominations[i];
+			amount=amount%denominations[i];
+		}
+		
+		return coinsCount;
+	}
+}
+
+Double Dimensional Array
+========================
+Double dimensional array is a combination of rows and columns.
+
+Double dimensional array is implemented based on array or arrays approach but not matrix form.
+
+The main objective of double dimensional array is memory utilization.
+
+Double dimensional array is used to develop business oriented application, gaming applications, matrix type of applications and etc.
+
+We can declare dimensional array as follow.
+
+ex:			
+			 columns
+			       |
+	int[][] arr=new int[3][3];
+			    |
+			rows 
+
+	Here we can store 9 elements.
+
+
+Q) Write a java program to display array elements in  matrix form?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the rows :");
+		int rows=sc.nextInt(); //3
+		
+		System.out.println("Enter the columns :");
+		int cols=sc.nextInt(); //3
+		
+		int[][] arr=new int[rows][cols];
+		
+		//insert the elements 
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+		
+		//display the elements
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	
+	}
+}
+
+
+Q) Write a java program to display square of a matrix?
+
+input:
+	1 2 3 
+	4 5 6
+	7 8 9
+
+ex:
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3}, 
+						{4,5,6},
+						{7,8,9}
+					};		
+					
+		int rows=arr.length;
+		int cols=arr[0].length;
+		
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]*arr[i][j]+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	
+	}
+}
+
+
+Q) Write a java program to perform sum of diagonal elements?
+
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3}, 
+						{4,5,6},
+						{7,8,9}
+					};		
+					
+		int rows=arr.length;
+		int cols=arr[0].length;
+		
+		int sum=0;
+		
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i==j)
+				{
+					sum += arr[i][j];
+				}
+			}
+		}
+	
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program to perform sum of upper triangle elements?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3}, 
+						{4,5,6},
+						{7,8,9}
+					};		
+					
+		int rows=arr.length;
+		int cols=arr[0].length;
+		
+		int sum=0;
+		
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i<j)
+				{
+					sum += arr[i][j];
+				}
+			}
+		}
+	
+		System.out.println(sum);
+	}
+}
+
+
+Q) Write a java program to perform sum of lower triangle elements?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] arr={
+						{1,2,3}, 
+						{4,5,6},
+						{7,8,9}
+					};		
+					
+		int rows=arr.length;
+		int cols=arr[0].length;
+		
+		int sum=0;
+		
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i>j)
+				{
+					sum += arr[i][j];
+				}
+			}
+		}
+	
+		System.out.println(sum);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

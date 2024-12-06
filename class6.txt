@@ -1,0 +1,325 @@
+Reserved Words
+===============
+There are some identifiers which are reserved to associate some funcationality or meaning such type of identifiers are called reserved words.
+
+Java supports 53  reserved words and it is divided into two types.
+
+Diagram: class6.1
+
+Used keywords with respect to class
+-------------------------------------
+import
+package
+interface
+enum
+class
+extends
+implements 
+
+Used keywords with respect to object
+----------------------------------
+new 
+instanceof
+this
+super 
+
+Used keywords with respect to datatypes
+-------------------------------
+byte
+short
+int
+long
+float
+double
+boolean
+char
+
+Used keywords with respect to return type
+------------------------
+void 
+
+Used keywords with respect to modifiers
+------------------------------
+default
+public
+private
+protected
+static 
+final
+abstract
+synchronized
+strictfp
+transient
+volatile 
+
+Used keywords with respect to flow control
+--------------------------
+if
+else
+switch
+case
+break
+continue
+do
+while 
+for 
+
+Used keywords with respect to exception handling
+--------------------
+try
+catch
+throw
+throws
+finally
+assert 
+
+
+Datatypes
+==========
+Datatype describes what type of value we want to store inside a variable.
+
+Datatype also tells how much memory has to be created for a variable.
+
+In java, we have two types of datatypes
+
+Diagram: class6.2
+
+
+byte
+-------
+It is a smallest datatype in java.
+
+Size : 1 byte (8 bits)
+
+Range: -128 to 127 (-2^7 to 2^7-1)
+
+ex:
+	1) byte b=10;
+	   System.out.println(b); // 10
+
+	2) byte b=10.5;
+	   System.out.println(b); // C.T.E 
+
+	3) byte b="hi";
+           System.out.println(b); // C.T.E 
+
+short
+------
+It is a rarely used datatype in java.
+
+Size : 2 bytes (16 bits)
+
+Range : -32768 to 32767 (-2^15 to 2^15-1)
+
+ex:
+---
+	1) byte b=10;
+	   short s=b;
+	   System.out.println(s); // 10
+
+	2) short s=true;
+ 	   System.out.println(s); // C.T.E 
+
+	3) short s=10.56;
+	   System.out.println(s); // C.T.E 
+
+int
+-----
+It is a mostly used datatype in java.
+
+Size : 4 bytes (32 bits)
+
+Range : -2147483648 to 2147483647 (-2^31 to 2^31-1) 
+
+ex:
+	1) int i=10.56;
+	   System.out.println(i); // C.T.E 
+
+	2) int i=true;
+	   System.out.println(i); // C.T.E 
+
+	3) int i="hi";
+	   System.out.println(i); // C.T.E 
+
+	4) int i='a';
+	   System.out.println(i); // 97 
+
+Note:
+-----
+In java, every character has a universal unicode value.
+
+ex:
+	a -->  97 
+	A -->  65 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

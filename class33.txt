@@ -1,0 +1,507 @@
+Encapsulation
+==============
+The process of encapsulating or grouping variables and it's associate methods in a single entity is called encapsulation.
+
+Diagram: class33.1
+
+A class is said to be encapsulated class if it supports data hiding and abstraction.
+
+Abstraction is used to hide the data and encapsulation is used to protect the data.
+
+In encapsulation , for every variable we need to declare setter and getter methods.
+
+Diagram: class33.2
+
+The main advantages of encapsulation are.
+
+1) It gives security.
+
+2) Enhancements becomes more easy.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) It improves maintainability of an application.
+
+The main disadvantage of encapsulation is , it will increase the length of our code and slow down the execution process.
+
+
+ex:
+----
+class Student 
+{
+	//current class variables 
+	private int studId;
+	private String studName;
+	private double studFee;
+	
+	//setter methods 
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+	
+	//getter methods
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(1000d);
+		
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+
+
+Q) What is tightly encapsulated class?
+
+A class is said to be tightly encapsulated class if and only if all variables of that class declared as private. Here we don't need to check these variables having setter and getter method or not.
+
+ex:
+	class A
+	{
+		private int i;
+		private int j;
+	}
+
+What is the difference between Abstraction and Encapsulation? 
+ 
+Abstraction 					Encapsulation
+--------------					----------- 
+Hiding internal implementation and 		The process of encapsulating or grouping	
+highlighting the set of services is called 	variables and its associate methods in a 
+abstraction. 					single entity is called encapsulation. 
+
+It is used to hide the data. 			It is used to protect the data. 
+
+
+Using abstract classes and interfaces we 	Using access modifiers we can implements 
+can implements abstraction. 			encapsulation.
+
+It is a process of gaining the information. 	It is a process of containing the information.
+ 
+It solves an issue at design level. 		It solves an issue at implementation level. 
+
+
+
+
+Q)What is the difference between POJO class and Java Bean class? 
+ 
+POJO 						Java Bean
+--------					----------- 
+It can’t be serialized. 			It can be serialized.
+
+ 
+Fields can have any visibility. 		Fields can have only private visibility. 
+
+
+There may or may not have 0-arg constructor.    It must have 0-argument constructor. 
+
+It does not extends any other class. 		It can extends. 
+
+
+It does not implement any other interface. 	It can implements. 
+
+It does not use any outside annotation. 	It uses outside annotation.
+
+
+
+Is-A relationship
+==================
+Is-A relationship is also known as inheritance.
+
+Using extends keyword we can implements Is-A Relationship.
+
+The main objective of Is-A relationship is to provide reusability.
+
+ex:
+---
+class Parent 
+{
+	public void methodOne()
+	{
+		System.out.println("Method One");
+	}
+}
+class Child extends Parent 
+{
+	public void methodTwo()
+	{
+		System.out.println("Method Two");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p=new Parent();
+		p.methodOne();
+		
+		Child c=new Child();
+		c.methodOne();
+		c.methodTwo();
+		
+		Parent p1=new Child();
+		p1.methodOne();
+		
+		//Child c1=new Parent();
+		
+	}
+}
+
+Conclusion
+----------
+Whatever parent having properties by default it comes to child.But whatever child having propertie it never goes back to parent.
+
+A parent reference can hold child object but child reference can't hold parent object.
+
+
+
+Inheritance
+=============
+Inheritance is a mechanism where we will derived a class in the presence of existing class.
+
+Inheritance is a mechanism where one class will inherit the properties of another class.
+
+The main objective of inheritance is to provide reusability.
+
+Diagram: class33.3
+
+We have following list of inheritance in java.
+
+1) Single Level inheritance 
+
+2) Multi Level inheritance 
+
+3) Multiple inheritance 
+
+4) Hirarchical inheritance
+
+5) Hybrid inheritance 
+
+1) Single Level inheritance 
+-----------------------------
+If we derived a class in the presence of one base class is called single level inheritance.
+
+Diagram:
+		A (parent class/ super class/ base class) 
+		|
+		|
+		|
+		B (child class / sub class / derived class) 
+
+ex:
+----
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B  extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+		
+		B b=new B();
+		b.m1();
+		b.m2();
+	}
+}
+
+ex:
+----
+class A 
+{
+	int i=10;
+}
+class B  extends A 
+{
+	int j=20;
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		 A a=new A();
+		 System.out.println(a.i);//10
+		 
+		 B b =new B();
+		 System.out.println(b.i+" "+b.j);//10  20
+	}
+}
+
+
+2) Multi Level inheritance 
+------------------------
+If a class is derived by using one base class and that class is derived from another base class is called multi level inheritance.
+
+ex:
+---
+	
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B  extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends B 
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a=new A();
+		a.m1();
+		
+		B b=new B();
+		b.m1();
+		b.m2();
+		
+		C c=new C();
+		c.m1();
+		c.m2();
+		c.m3();
+		
+	}
+}
+
+3) Multiple inheritance 
+------------------------
+In java, a class can't extends more then one class simultenously because java does not support multiple inheritance.
+ex:
+	class A 
+	{
+	}
+	class B 
+	{
+	}
+	class C extends A,B  --> invalid 
+	{
+	}
+
+Interface can extends more then one interface so we can achieve multiple inheritance concept through interfaces.
+
+ex:
+	interface A 
+	{
+	}
+	interface B 
+	{
+	}
+	interface extends A,B --> valid 
+	{
+	}
+
+If our class does not extends any other class then it is a direct child class of Object class.
+
+ex:					diag: 
+	class A 				Object 
+	{					|
+						|
+	}					A 
+
+
+If our class extends some other class then it is a indirect child class of Object class.
+
+ex:					diag:
+	class A 				Object
+	{					|
+	}					|
+	class B extends A			A 
+	{					|
+	}					|
+						B 
+
+Java does not support cyclic inheritance.
+
+ex:
+	class A extends B
+	{	
+	}
+	class B extends A 
+	{	
+	}
+	
+
+Q) Why java does not support multiple inheritance?
+
+There may a chance of raising ambiguity problem that's why java does not support multiple inheritance.
+
+ex:
+		p1.m1()				p2.m1()
+		|-------------------------------------|
+				|
+				c.m1()
+
+
+
+
+
+
+
+
+
+Interview Question
+===================
+Q) What is jagged array?
+
+Jagged array is also known as array of arrays.
+
+It is a multi dimensional array where each row having different size.
+
+Diagram: class33.4
+
+ex:
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		int[][] arr=new int[3][];
+		arr[0]=new int[3];
+		arr[1]=new int[2];
+		arr[2]=new int[4];
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr[i].length;j++)
+			{
+				System.out.println("Enter the element of arr["+i+"]["+j+"] :");
+				arr[i][j]=sc.nextInt();
+			}
+		}
+		
+		//reading
+		for(int[] a:arr)
+		{
+			for(int i:a)
+			{
+				System.out.print(i+" ");
+			}
+			//new 
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

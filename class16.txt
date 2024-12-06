@@ -1,0 +1,541 @@
+7) Shift operators 
+===================
+
+Right shift operator (>>)
+--------------------------
+10 >> 1 =  10/2
+
+10 >> 2 =  10/4
+
+10 >> 3 =  10/8
+
+10 >> 4 =  10/16
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 10 >> 3; // 10/8
+		
+		System.out.println(i); //1
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 100 >> 6;  //100/ 64
+		
+		System.out.println(i); //1
+	}
+}
+
+Left shift operator (<<)
+--------------------------
+10 << 1 =  10*2
+
+10 << 2 =  10*4
+
+10 << 3 =  10*8
+
+10 << 4 =  10*16
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 10 << 3;  // 10*8 =80
+		
+		System.out.println(i); // 80
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i= 100 << 2;  // 100 * 2*2
+		
+		System.out.println(i); // 400
+	}
+}
+
+8)Unary operators
+=================
+
+Increment/Decrement operators (++/--)
+-----------------------------------
+We have two types of increment operators
+
+1) Post increment 
+	ex:
+		i++;
+
+2) Pre increment 
+	ex:
+		++i;
+
+We have two types of decrement operators.
+
+1) Post decrement
+	ex:
+		i--;
+
+2) Pre decrement
+	ex:
+		--i;
+
+POST Increment/Decrement
+------------------------
+Rule1: First Take 
+
+Rule2: Then Change 
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		i++;
+		
+		System.out.println(i); // 11
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(i++); //10
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j= i++ + i++; //10 + 11
+		
+		System.out.println(i+" "+j); //12  21
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j=i-- + i--; //10 + 9 
+		
+		System.out.println(i+" "+j); // 8  19
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j=i++ + i-- + i++; //10 + 11 + 10
+		
+		System.out.println(i+" "+j); // 11 31
+	}
+}
+
+
+Pre increment/decrement
+------------------------
+Rule1 : First Change 
+
+Rule2 : Then Take
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		++i;
+		
+		System.out.println(i); //11
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(++i); // 11
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j=++i + ++i; //11 + 12 
+		
+		System.out.println(i+" "+j); //12  23
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		int j=--i + --i; // 9 + 8 
+		
+		System.out.println(i+" "+j); // 8  17
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(i++ + ++i); //10 + 12 = 22
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=100;
+		
+		100++;
+		
+		System.out.println(i);//C.T.E 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		
+		System.out.println(++(i++));//C.T.E  
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		byte b=127;
+		
+		b++;
+		
+		System.out.println(b);//-128
+	}
+}
+
+
+Control Statements
+==================
+Control statement enables the programmer to control flow of a program.
+
+Control statement allows the programmer to make decisions, to jump from one section of code to another section and to execute the code repeatedly.
+
+In java, we have four control statements.
+
+1) Decision Making statement 
+
+2) Selection statement 
+
+3) Iteration statement 
+
+4) Jump statement 
+
+1) Decision Making statement 
+----------------------------
+Decision making statement is used to declare conditions in our program.
+
+Decision making statement is possible by using following ways.
+
+i) if stmt 
+
+ii) if else stmt 
+
+iii) if else if ladder 
+
+iv) nested if stmt 
+
+i) if stmt 
+-----------
+It is used to execute the source code only if our condition is true.
+
+syntax:
+-------
+	if(condition)
+	{
+		-
+		- //code to be execute 
+		-
+	}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		
+		if(5>2)
+		{
+			System.out.println("stmt2");
+		}
+		
+		System.out.println("stmt3");
+	}
+}
+o/p:
+	stmt1
+	stmt2
+	stmt3
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		
+		if(!(5>2))
+		{
+			System.out.println("stmt2");
+		}
+		
+		System.out.println("stmt3");
+	}
+}
+o/p:
+	stmt1
+	stmt3
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		if(!(5>2))
+			System.out.println("stmt1");
+			System.out.println("stmt2");
+			System.out.println("stmt3");
+		
+		
+	}
+}
+o/p:
+	stmt2
+	stmt3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,426 @@
+ex:
+	byte	<--	short
+				<--
+					int <--	long <-- float <-- double
+				<--
+			char
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		double d=10.5d;
+		
+		int i=(int)d;
+		
+		System.out.println(i); // 10
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=65;
+		
+		char ch=(char)i;
+		
+		System.out.println(ch); // A 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=130;
+		
+		byte b=(byte)i;
+		
+		System.out.println(b); // -126 
+	}
+}
+
+Assignment
+===========
+Q) Write a java program to accept six marks of a student then find out total and average?
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int m1=89,m2=45,m3=65,m4=74,m5=49,m6=58;
+		
+		int total=m1+m2+m3+m4+m5+m6;
+		
+		float avg=(float)total/6;
+		
+		System.out.println("Total : "+total);
+		System.out.println("Average :"+avg);
+	}
+}
+
+
+Q) Write  a java program to perform cube of a given number?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt(); //5
+		
+		int cube=(int)Math.pow(n,3);
+		
+		System.out.println("cube of a given number is ="+cube);
+		
+	}
+}
+
+Types of blocks in java
+=======================
+A block is a set of statements which is enclosed in a curly braces i.e {}.
+
+In java, we have three types of blocks.
+
+1) Instance block 
+
+2) Static block 
+
+3) Local block 
+
+1) Instance block 
+----------------
+Instance block is used to initialize the values to instance variables.
+
+Instance block must and should declare immediately after the class but not inside methods and constructors.
+
+Instance block will execute when create an object.
+
+We can declare instance block as follow.
+
+syntax:
+	//instance block
+	{
+		-
+		- //set of statements 
+		-
+	}
+
+ex:
+----
+
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");			
+	}
+}
+o/p:
+	main-method 
+
+ex:
+---
+
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");	
+		Test t=new Test();
+	}
+}
+
+o/p:
+	main-method 
+	instance-block 
+
+ex:
+---
+
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("main-method");	
+		Test t2=new Test();
+	}
+}
+o/p:
+	instance-block
+	main-method
+	instance-block 
+
+ex:
+---
+
+class Test  
+{
+	//instance variable 
+	int i;
+	
+	//instance block
+	{
+		i=100;
+	}
+	
+	public static void main(String[] args) 
+	{
+		Test t=new Test();
+		System.out.println(t.i);//100
+	}
+}
+
+2) static block 
+----------------
+Static block is used to initialize the values to static variables.
+
+Static block must and should declare immediately after the class  using static keyword but not inside methods and constructors.
+
+Static block will execute at the time of classloading.
+
+We can declare static block as follow.
+
+syntax:
+	//static block
+	static	
+	{
+		-
+		- //set of statements 
+		-
+	}
+
+ex:
+---
+
+class Test  
+{
+	//static block
+	static
+	{
+		System.out.println("static-block");
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	static-block
+	main-method 
+
+ex:
+----
+
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	
+	//static block
+	static
+	{
+		System.out.println("static-block");
+	}
+	
+	public static void main(String[] args) 
+	{
+		Test t=new Test();
+		System.out.println("main-method");
+	}
+}
+o/p:
+	static-block
+	instance-block
+	main-method 
+
+
+ex:
+---
+
+class Test  
+{
+	//static variable 
+	static int i;
+	
+	//static block
+	static
+	{
+		i=200;
+	}
+	
+	public static void main(String[] args) 
+	{
+		System.out.println(i); //200
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

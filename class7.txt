@@ -1,0 +1,224 @@
+long 
+--------
+If int datatype is not enough to hold large value then we need to use long datatype.
+
+Size : 8 bytes (64 bits)
+
+Range : -2^63 to 2^63-1
+
+ex:
+	1) long l=10.56;
+	   System.out.println(l); // C.T.E 
+
+	2) long l="hi";
+	   System.out.println(l); // C.T.E 
+
+	3) long l=true;
+	   System.out.println(l); // C.T.E 
+
+	4) long l='a';
+	   System.out.println(l); // 97	
+
+
+float							double
+-------------						----------------
+If we need 4 to 6 decimal point of accuracy then 	If we need 14 to 16 decimal point of accuracy
+we need to use float.					then we need to use double.
+
+Size: 4 bytes (32 bits)					Size: 8 bytes (64 bits)
+
+Range : -3.4e38 to 3.4e38				Range: -1.7e308 to 1.7e308
+
+To declare a float value we need to suffix with 	To declare a double value we need to suffix
+'f' or 'F'.						with 'd' or 'D'.
+
+ex:							ex:
+	10.56f							10.56d
+
+
+ex:
+---
+	1) float f=10.56f;
+	   System.out.println(f); // 10.56
+
+	2) float f=10;
+	   System.out.println(f); // 10.0
+
+	3) float f='A';
+	   System.out.println(f); // 65.0
+
+	4) float f="true";
+	   System.out.println(f); // C.T.E 
+
+	5) float f=false;
+	   System.out.println(f); // C.T.E 
+
+ex:
+---
+	1) double d=10.56d;
+	   System.out.println(d); // 10.56
+
+	2) double d=10;
+	   System.out.println(d); // 10.0
+
+	3) double d='A';
+	   System.out.println(d); // 65.0
+
+	4) double d="true";
+	   System.out.println(d); // C.T.E 
+
+	5) double d=false;
+	   System.out.println(d); // C.T.E 
+
+boolean
+---------
+It is used to represent boolean values either true or false.
+
+Size : (Not Applicable)  (1-bit)
+
+Range: (Not Applicable)
+
+
+ex:
+	1) boolean b="true";
+	   System.out.println(b); // C.T.E 
+
+	2) boolean b=TRUE;
+	   System.out.println(b); // C.T.E 
+
+	3) boolean b=true;
+	   System.out.println(b); // true 
+
+
+char
+-------
+It is a single character which is enclosed in a single quotation.
+
+Size : 2 bytes (16 bits)
+
+Range: 0 to 65535
+
+ex:
+	1) char ch='a';
+	   System.out.println(ch);  //a
+
+	2) char ch="p";
+	   System.out.println(ch); // C.T.E 
+
+	3) char ch='ab';
+	   System.out.println(ch); // C.T.E 
+
+	4) char ch=65;
+	   System.out.println(ch); // A 
+
+Diagram: class7.1
+
+
+Interview Question
+===================
+
+Q) Is java purely object oriented or not?
+
+No, java will not consider as purely object oriented  programming language because it does not 
+support many OOPS concepts like multiple inheritance, operator overloading and more ever we 
+depends upon primitive datatypes which are non-objects.
+
+
+Q) Write a java program to display range of byte datatype?
+
+byte : -128 to 127 
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Byte.MIN_VALUE);
+		System.out.println(Byte.MAX_VALUE);
+	}
+}
+
+
+Q) Write a java program to display range of short datatype?
+
+short : -32768 to 32767 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Short.MIN_VALUE);
+		System.out.println(Short.MAX_VALUE);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

@@ -1,0 +1,280 @@
+Q) Write a java program to  display three highest elements from given array?
+
+input:
+	6 9 2 4 7 5 8 1 
+
+output:
+	9 8 7 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,9,2,4,7,5,8,1};
+		
+		int firstElement=Integer.MIN_VALUE;
+		int secondElement=Integer.MIN_VALUE;
+		int thirdElement=Integer.MIN_VALUE;
+		
+		//for each loop
+		for(int i:arr)
+		{
+			if(i>firstElement)
+			{
+				thirdElement=secondElement;
+				secondElement=firstElement;
+				firstElement=i;
+			}
+			else if(i>secondElement)
+			{
+				thirdElement=secondElement;
+				secondElement=i;
+			}
+			else if(i>thirdElement)
+			{
+				thirdElement=i;
+			}
+		}
+		
+		System.out.println(firstElement+" "+secondElement+" "+thirdElement);
+	}
+}
+
+
+Q) Write a java program to display duplicate elements from given array?
+
+input:
+	1 6 4 9 2 7 2 9 5 4 
+
+output:
+	4 9 2 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,6,4,9,2,7,2,9,5,4};
+		
+		//duplicate elements 
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+	}
+}
+
+
+Q) Write a java program to display unique elements from given array?
+
+input:
+	1 6 4 9 2 7 2 9 5 4 
+
+output:
+	1 6 7 5
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,6,4,9,2,7,2,9,5,4};
+		
+		//unique elements 
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			
+			if(cnt==1)
+				System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to display most repeating element from given array?
+
+input:
+	1 2 6 4 9 2 7 2 9 5 4 5 2 9  4 
+
+output:
+	2 repeating for 4 times 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,2,6,4,9,2,7,2,9,5,4,5,2,9,4};
+		
+		int element=0;
+		int maxCount=0;
+		 
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				element=arr[i];
+			}
+		}
+		System.out.println(element+" repeating for "+maxCount+" times");
+	}
+}
+
+Q)Write a java program to find out leader elements from given array?
+
+input:
+	3  5  34  8  12  1  7
+
+output:
+	7  12  34 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={3,5,34,8,12,1,7};
+		
+		int max=arr[arr.length-1];
+		System.out.print(max+" ");
+		
+		//reading reverse
+		for(int i=arr.length-2;i>=0;i--)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+				System.out.print(max+" ");
+			}
+		}
+	}
+}
+
+Assignments
+============
+
+Q) Write a java program to display below loop pattern?
+
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int n=4;
+		
+		int size=7;
+		
+		for(int i=0;i<size;i++)
+		{
+			for(int j=0;j<size;j++)
+			{
+				int value = n - Math.min(Math.min(i,j),Math.min(size-i-1,size-j-1));
+				System.out.print(value+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+
+Q) Write a java program to display reverse of a given number using recursion?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int n=123;
+		
+		System.out.println(reverse(n));
+	}
+	public static int reverse(int n)
+	{
+		return reverseNumber(n,0);
+	}
+	public static int reverseNumber(int n,int reverse)
+	{
+		if(n==0)
+		{
+			return reverse;
+		}
+		
+		int rem=n%10;
+		
+		reverse = (reverse * 10) + rem;
+		
+		return reverseNumber(n/10,reverse);
+			
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

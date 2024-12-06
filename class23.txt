@@ -1,0 +1,432 @@
+Right side loop patterns
+========================
+1)
+      1
+    2 2 
+  3 3 3 
+4 4 4 4 
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows 
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	}
+}
+
+2)
+4 4 4 4
+  3 3 3 
+    2 2 
+      1 
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows 
+		for(int i=4;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	}
+}
+
+3) 
+      * 
+    * * 
+  * * *
+* * * *
+  * * * 
+    * * 
+      * 
+
+ 
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows 
+		for(int i=1;i<=4;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+		//rows 
+		for(int i=3;i>=1;i--)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	}
+}
+
+
+Pyramid loop patterns
+===================
+
+1)
+      1
+    1 2 1 
+  1 2 3 2 1 
+1 2 3 4 3 2 1
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows 
+		for(int i=1;i<=4;i++)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			
+			//right side elements 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	}
+}
+
+
+2) 
+1 2 3 4 3 2 1 
+  1 2 3 2 1 
+    1 2 1 
+      1  
+
+ex:
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows 
+		for(int i=4;i>=1;i--)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			
+			//right side elements 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	}
+}
+
+3) 
+      *
+    * * * 
+  * * * * * 
+* * * * * * * 
+  * * * * * 
+    * * * 
+      * 
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows 
+		for(int i=1;i<=4;i++)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			
+			//right side elements 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+		//rows 
+		for(int i=3;i>=1;i--)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+			
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+			
+			//right side elements 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line
+			System.out.println();
+		}
+		
+	}
+}
+
+4) Write a java program to display pascal triangle?
+
+	1	
+       1 1
+      1 2 1 
+     1 3 3 1
+    1 4 6 4 1 	
+
+ex:
+----
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=0;i<5;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print(" ");
+			}
+			
+			int number=1;
+			for(int k=0;k<=i;k++)
+			{
+				System.out.print(number+" ");
+				
+				number = (number * (i-k))/(k+1);
+			}
+			
+			//new line 
+			System.out.println();
+			
+		}
+		
+	}
+}
+ 
+Q) Write a java program to display the given loop pattern?
+
+	
+	* 
+       * *
+      * * * 
+     * * * * 
+    * * * * *  	
+
+ex:
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=0;i<5;i++)
+		{
+			//space
+			for(int j=4;j>i;j--)
+			{
+				System.out.print(" ");
+			}
+		
+			for(int k=0;k<=i;k++)
+			{
+				System.out.print("* ");
+			
+			}
+			//new line 
+			System.out.println();
+		}
+		
+	}
+}
+
+
+Q) Write a java program to display below loop pattern?
+
+1             1 
+1 2         2 1 
+1 2 3     3 2 1 
+1 2 3 4 4 3 2 1
+
+ex:
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		int rows=4;
+		
+		//rows
+		for(int i=1;i<=rows;i++)
+		{
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//space
+			for(int j=1;j<=(rows-i)*2;j++)
+			{
+				System.out.print("  ");
+			}
+			
+			//right side elements
+			for(int j=i;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+
+Assignment
+===========
+Q) write a java program to display below loop pattern?
+
+	    *	
+	    *	
+	* * * * *
+	    * 
+	    * 
+
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=5;i++)
+		{
+			for(int j=1;j<=5;j++)
+			{
+				if(i==3 || j==3)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println();
+		}
+	}
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

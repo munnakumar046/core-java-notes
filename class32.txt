@@ -1,0 +1,155 @@
+object
+======
+It is a outcome of a blue print.
+
+It is a instance of a class.
+Here instance means allocating memory for our data members.
+
+It is a physical entity.
+
+It is a collection of properties and behaviours.
+
+ex:
+			Dog
+			|
+	|----------------------------------|
+	Properties			Behaviours		
+
+	> Name				> Barking 
+	> Color				> Eating 
+	> Age 				> Sleeping
+	> Weight 			and etc.
+	> Height 
+	and etc.
+
+
+Memory space will be created when we create an object.
+
+We can declare object as follow.
+ex:
+		operator 
+		      |	
+	Test   t  =  new  Test();
+	|      | 	     |
+   classname reference_var  constructor_name
+
+It is possible to create more then one object in a single class.
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+		
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+		
+		System.out.println(t1);//Test@Hexadecimal 
+		System.out.println(t2.toString());
+		System.out.println(t3.toString());
+	}
+}
+
+
+Q) What is hashcode in java?
+
+Every object JVM will create a unique identification number i.e hash code.
+
+In order to read the hash code of an object we need to use hashCode() method.
+
+A hashCode() method present in Object class.
+
+Diagram: class32.1
+
+
+
+Q) What is toString()?
+
+Whenever we are trying to display object reference directly or indirectly toString() method 
+will be executed.
+
+A toString() method is also present in Object class.
+
+
+Q) What is the difference between class and object?
+
+class						object
+----------					-------
+To declare a class we will use class keyword.	To declare object we will use new keyword.
+
+It is a collection of objects.			It is a collection of properties and behaviours.
+
+It is a blueprint of an object.			It is a outcome of a blue print.
+
+It is a logical entity.				It is a physical entity.
+
+It can't manipulate.				It can manipulate.
+
+It does not allocate the memory.		It allocates the memory.
+
+It declares once.				It declares many times.
+
+
+
+
+Data Hiding
+===========
+Data hiding is a process of hiding object data from the outsiders.
+
+Using private modifier we can implements data hiding concept.
+
+The main objective of data hiding is to provide security.
+
+ex:
+---
+class Account 
+{
+	private double balance=5000d;
+}
+class Student
+{
+	public static void main(String[] args)
+	{
+		Account account=new Account();
+		System.out.println(account.balance);
+	}
+}
+
+
+Abstraction
+===========
+Hiding internal implementation and highlighting the set of services is called abstraction.
+
+Using abstract classes and interfaces we can implements abstraction.
+
+The best example of abstraction is GUI ATM machine because bank people will hide internal implementation and highlights the set of services like banking, withdrawl, mini statement and etc.
+
+The main advantages of abstraction are.
+
+1) It gives security because it will hide internal implementation.
+
+2) Enhancement becomes more easy because without effecing enduser they can perform any changes 
+   in our internal system.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) It improves maintainability of an application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

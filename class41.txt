@@ -1,0 +1,432 @@
+Q) Write a java program to count number of 2's present in a given number?
+
+input:
+	22
+
+output:
+	6 (2,12,20,21,22)
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int num=22;
+		
+		StringBuffer sb=new StringBuffer();
+		
+		for(int i=1;i<=num;i++)
+		{
+			sb.append(i);	
+		}
+		
+		int cnt=0;
+		for(int i=0;i<sb.length();i++)
+		{
+			int n=Character.getNumericValue(sb.charAt(i));
+			
+			if(n==2)
+			{
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
+}
+	
+Q) Write a java program to multiply two arrays?
+
+input:
+	5 3 1
+	2 5 
+
+output:
+	13275 (531*25)
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={5,3,1};
+		int[] arr2={2,5};
+		
+		//caller method 
+		int a =Integer.parseInt(arrayToString(arr1));
+		int b =Integer.parseInt(arrayToString(arr2));
+		
+		System.out.println(a*b);
+	}
+	//callie method 
+	public static String arrayToString(int[] arr)
+	{
+		StringBuffer sb=new StringBuffer();
+		for(int i:arr)
+		{
+			sb.append(i);
+		}
+		
+		return sb.toString();
+	}
+}
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	ABBCCCDDDD
+
+output:
+	A1B2C3D4
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		String str="ABBCCCDDDD";
+		
+		StringBuffer sb=new StringBuffer();
+		
+		int count=1;
+		
+		for(int i=0;i<str.length();i++)
+		{
+			if(i<str.length()-1 &&  str.charAt(i) == str.charAt(i+1))
+			{
+				count++;
+			}
+			else
+			{
+				sb.append(str.charAt(i)).append(count);
+				count=1;
+			}
+		}
+		
+		System.out.println(sb.toString());
+	}
+}
+
+StringBuilder
+=============
+StringBuilder is exactly same as StringBuffer with following differences.
+
+
+StringBuffer					StringBuilder
+-------------					--------------
+Every method present in StringBuffer is		No method present in StringBuilder is synchronized. 
+synchronized. 
+
+At a time only one thread is allowed to 	Multiple threads are allowed to operate on 
+operator on StringBuffer object.Hence it 	StringBuilder object.Hence it is not thread safe.
+is thread safe.
+
+Waiting time of a thread will increase		There is no waiting threads relatively performance 
+relatively performance is low.			is high.
+
+It is introduced in 1.0v.			It is introduced in 1.5v.
+
+Note:
+-----
+If our content not change frequently then it is recommanded to use String.
+
+If our content change frequently where thread safety is required then we need to use StringBuffer.
+
+If our content change frequently where thread safety is not required then we need to use StringBuilder.
+
+
+StringTokenizer 
+================
+StringTokenizer is a class which is present in java.util package.
+
+It is used to tokenize the string irrespective of regular expression.
+
+We can create StringTokenizer class object as follow.
+
+ex:
+	StringTokenizer st=new StringTokenizer(String s,RegularExpression regex);
+
+StringTokenizer class contains following five methods.
+ex:
+	public int countTokens()
+	public boolean hasMoreTokens()
+	public String nextToken()
+	public boolean hasMoreElements()
+	public Object nextElement() 
+
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		StringTokenizer st=new StringTokenizer("this is java class"," ");
+		
+		System.out.println(st.countTokens());//4
+	}
+}
+
+ex:
+--
+
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		StringTokenizer st=new StringTokenizer("this is java class"," ");
+		
+		while(st.hasMoreTokens())
+		{
+			String s=st.nextToken();
+			System.out.println(s);
+		}
+	}
+}
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		StringTokenizer st=new StringTokenizer("this is java class"," ");
+		
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	}
+}
+
+ex:
+---
+import java.util.StringTokenizer;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		StringTokenizer st=new StringTokenizer("9,99,999",",");
+		
+		while(st.hasMoreElements())
+		{
+			String s=(String)st.nextElement();
+			System.out.println(s);
+		}
+	}
+}
+
+Q) What is garbage collection and in how many ways we can call garbage collector?
+
+Garbage is a daemon thread which is used to destroy unused or useless objects from java.
+
+There are two ways to call garbage collector in java.
+
+1) System.gc()
+
+2) Runtime.getRuntime().gc()
+
+ex:
+--
+class Test  
+{
+	//instance variable 
+	int i=10;
+	
+	public static void main(String[] args)
+	{
+		Test t1=new Test();
+		System.out.println(t1.i);//10
+		
+		t1=null;
+		
+		//System.gc();
+		
+		Runtime.getRuntime().gc();
+		
+	}
+	public void finalize()
+	{
+		System.out.println("Garbage Collector called");
+	}
+}
+
+
+
+
+
+
+
+
+Exception Handling 
+==================
+
+Q) What is the difference between Exception and Error?
+
+
+Exception
+---------
+	Exception is a problem for which we can provide solution programmatically.
+
+	Exceptions raised due to syntax errors.
+
+	ex:
+		ArithmeticException 
+		FileNotFoundException 
+		IllegalArgumentException 	
+
+Error
+-----
+	Error is a problem for which we can't provide solution programmatically.
+
+	Errors raised due to lack of system resources.
+
+	ex:
+		OutOfMemoryError 
+		StackOverFlowError
+		LinkageError	
+
+As a part of java application development it is a responsibility of a programmer to provide smooth termination for every java program.
+
+We have two types of terminations.
+
+1) Smooth termination / Graceful termination 
+
+2) Abnormal termination 
+
+1) Smooth termination 
+---------------------
+During the program execution suppose if we are not getting any interruption in the middle of the program such type of termination is called smooth termination.
+
+ex:
+class Test  
+{	
+	public static void main(String[] args)
+	{
+		System.out.println("Hello World");
+	}
+}
+
+2) Abnormal termination 
+-----------------------
+During the program execution suppose if we are getting any interruption in the middle of the program such type of termination is called abnormal termination.
+
+ex:
+class Test  
+{	
+	public static void main(String[] args)
+	{
+		System.out.println(10/0);
+	}
+}
+
+If any exception raised in our program, we must and should handle that exception otherwise our program will terminates abnormally.
+
+Here exception will display name of the exception, description of the exception and line number of the exception.
+
+Exception 
+=========
+It is a unwanted, unexpected event which disturbs normal flow of a program.
+
+Exceptions always raise at runtime so they are also known as runtime events.
+
+The main objective of exception handling is to provide graceful termination.
+
+In java , exception are divided into two types.
+
+1) Predefined exceptions 
+
+2) Userdefined exceptions 
+
+1) Predefined exceptions 
+--------------------------
+Built-In exceptions are called predefined exceptions.
+
+It is categories into two types.
+
+i) Checked exceptions 
+
+ii) Unchecked exceptions 
+
+
+Diagram; class41.1
+
+
+i) Checked exceptions 
+-------------------
+Exceptions which are checked by the compiler at the time of compilation are called checked exceptions.
+ex:
+	InterruptedException
+	EOFException
+	IOException 
+
+ii) Unchecked exceptions 
+-------------------------
+Exceptions which are checked by the JVM at the time of runtime are called checked exceptions.
+ex:
+	ArithmeticException
+	ClassCastException
+	IllegalArgumentException 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

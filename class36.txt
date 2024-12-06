@@ -1,0 +1,421 @@
+Interface
+=========
+Interface is a collection of zero or more abstraction methods.
+
+Abstract methods are incomplete methods because they ends with semicolon and does not have any body.
+
+ex
+	void m1();
+
+It is not possible to create object for interfaces.
+
+To write the implementation of abstract methods we will use implementation class.
+
+It is possible to create object for implementation class because it contains method with body.
+
+By default every abstract method is a public and abstract.
+
+ex:
+	public abstract void m1();
+
+Interface contains only constants i.e public static final.
+
+We can declare interface as follow.
+
+syntax:
+-----
+	interface  <interface_name>
+	{
+		-
+		- //abstract methods 
+		- //constants 
+		-
+	}
+
+If we know service requirement specification then we need to use interface.
+
+Diagram: class36.1
+
+ex:
+----
+interface A 
+{
+	//abstract method
+	public abstract void m1();
+}
+class B implements A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		A a=new B();
+		a.m1();
+	}
+}
+
+ex:
+---
+interface A 
+{
+	//abstract method
+	public abstract void m1();
+}
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		A a=new A()
+		{
+			public void m1()
+			{
+				System.out.println("From M1 Method");
+			}
+		};
+		a.m1();	
+	}
+}
+
+If interface contains four methods then we need to override all methods otherwise we will get compile time error.
+
+ex:
+---
+interface A 
+{
+	public abstract void show();
+	public void display();
+	abstract void see();
+	void view();
+}
+class B implements A 
+{
+	public void show()
+	{
+		System.out.println("Show Method");
+	}
+	public void display()
+	{
+		System.out.println("Display Method");
+	}
+	public void see()
+	{
+		System.out.println("See Method");
+	}
+	public void view()
+	{
+		System.out.println("View Method");
+	}
+}
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		A a=new B();
+		a.show();
+		a.display();
+		a.see();
+		a.view();
+		
+	}
+}
+
+A class can't extends more then one class simultenously. 
+
+But interface can extends more then one interface.
+
+ex:
+---
+interface A 
+{
+	void m1();
+}
+interface B 
+{
+	void m2();
+}
+interface C  extends A,B
+{
+	void m3();
+}
+class D implements  C 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		C c=new D();
+		c.m1();
+		c.m2();
+		c.m3();
+	}
+}
+
+A class can implements more then one interface.
+
+ex:
+---
+interface Father 
+{
+	float HT=6.2f;
+	void height();
+}
+interface Mother
+{
+	float HT=5.8f;
+	void height();
+}
+class Child implements Father,Mother 
+{
+	public void height()
+	{
+		float height=(Father.HT+Mother.HT)/2;
+		System.out.println("Child Height is ="+height);
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Child c=new Child();
+		c.height();
+	}
+}
+
+Note:
+------
+Interface is a collection of abstract methods, default methods and static methods.
+
+
+Marker interface
+================
+Interface which does not have methods and constants is called marker interface.
+
+In general, empty interface is called marker interface.
+
+By using marker interface we will get some ability to do.
+
+We have following list of marker interfaces.
+
+ex:
+	Serializable 
+	Cloneable 
+	Remote 
+	and etc.
+
+ex:
+class Student implements java.io.Serializable
+{
+	private int studId;
+	
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public int getStudId()
+	{
+		return studId;
+	}
+}
+
+
+Abstract class
+===============
+Abstract class is a collection of zero or more abstract methods and concrete methods.
+
+A abstract keyword is applicable for classes and methods but not for variables.
+
+It is not possible to create object for abstract class.
+
+To write the implementation of abstract methods we will use sub classes.
+
+By default every abstract method is a public and abstract.
+
+Abstract class contains only instance variables.
+
+syntax:
+------
+	abstract class <class_name>
+	{
+		-
+		- //abstract method 
+		- //concrete method 	 
+		- //instance variable 
+		-
+	}
+
+If we know partial implementation then we need to use abstract class.
+
+ex:
+---
+abstract class Plan 
+{
+	//instance variable
+	protected double rate;
+	
+	//abstract method
+	public abstract void getRate();
+	
+	//concrete method
+	public void calculateBill(int units)
+	{
+		System.out.println("Total Units :"+units);
+		System.out.println("Total Bill :"+ units*rate);
+	}
+}
+class DomesticPlan extends Plan 
+{
+	public void getRate()
+	{
+		rate=2.5d;
+	}
+}
+class CommercialPlan extends Plan
+{
+	public void getRate()
+	{
+		rate=5.0d;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		DomesticPlan dp=new DomesticPlan();
+		dp.getRate();
+		dp.calculateBill(250);
+		
+		CommercialPlan cp=new CommercialPlan();
+		cp.getRate();
+		cp.calculateBill(250);
+	}
+}
+
+
+Q) What is the difference between interface and abstract class?
+
+
+Interface					Abstract class
+------------------				---------------
+To declare interface we will use interface	To declare abstract class we will use abstract 
+keyword.					keyword.
+
+It is a collection of abstract methods, default	It is a collection of abstract methods and concrete 
+methods and static methods.			methods.
+
+It contains constants.				It contains instance variables.
+
+We can achieve multiple inheritance.		We can't achieve multiple inheritance.
+
+We will use implementation class to write the	We will use sub class to write the logic for 
+logic for abstract methods.			abstract methods.
+
+If we know only specification then we need 	If we know partial implementation then we need to use
+to use interface.				abstract class.
+
+
+Abstraction
+===========
+Hiding internal implementation and highlighting the set of services is called abstraction.
+
+Using abstract class and interfaces we can implements abstraction.
+
+ex:
+
+abstract class Animal 
+{
+	//abstract method
+	public abstract void makeSound();
+}
+class Cat extends Animal
+{
+	public void makeSound()
+	{
+		System.out.println("Meow Meow");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Cat c=new Cat();
+		c.makeSound();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

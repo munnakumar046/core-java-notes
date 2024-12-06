@@ -1,0 +1,446 @@
+Q) Write a java program to display distinct elements from given array?
+
+input:
+	1 2 2 3 3 3 4 4 4 4
+
+output:
+	1 2 3 4 
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,2,2,3,3,3,4,4,4,4};
+		
+		Set<Integer> set = new LinkedHashSet<Integer>();
+		
+		//for each loop
+		for(int i:arr)
+		{
+			set.add(i);
+		}
+		
+		set.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+TreeSet
+=======
+The underlying datastructure is Balanced Tree.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it will take sorting order.
+
+Hetrogeneous objects are not allowed. If we try to insert hetrogeneous objects then we will get ClassCastException.
+
+Null insertion is not possible. If we insert null then we will get NullPointerException.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts); // [1,5,7,10]
+		
+		ts.add(1);
+		System.out.println(ts); // [1,5,7,10]
+		
+		//ts.add("one");
+		//System.out.println(ts); // R.E ClassCastException
+		
+		//ts.add(null);
+		//System.out.println(ts); // R.E NullPointerException
+	}
+}
+
+Q) What is the difference between Comparable and Comparator interface?
+
+Comparable
+----------
+Comparable is an interface which is present in java.lang package.
+
+Comparable interface contains only one method i.e compareTo() method.
+
+If we depend upon default natural sorting order then we need to use Comparable interface.
+
+ex:
+		obj1.compareTo(obj2)
+
+		It returns -ve if obj1 comes before obj2 
+		It returns +ve if obj1 comes after obj2
+		it returns 0 if both objects are same
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("A".compareTo("Z"));	// -25 
+		
+		System.out.println("Z".compareTo("A")); // 25
+		
+		System.out.println("K".compareTo("K")); // 0
+	}
+}
+
+Comparator
+-----------
+Comparator is an interface which is present in java.util package.
+
+Comparator interface contains following two methods i.e compare() and equals() method.
+
+If we depend upon customized sorting order then we need to use Comparator interface.
+
+ex:
+	public int compare(Object obj1,Object obj2)
+
+		It returns +ve if obj1 comes before obj2 
+		It returns -ve if obj1 comes after obj2
+		it returns 0 if both objects are same
+
+Implementation of equals() method is optional because it is present in Object class which is available to the class through inheritance.
+
+Implementation of compare() method is mandatory. 
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts);//[10, 7, 5, 1]
+	}
+}
+class MyComparator implements Comparator
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1=(Integer)obj1;
+		Integer i2=(Integer)obj2;
+		if(i1<i2)
+			return 1;
+		else if(i1>i2)
+			return -1;
+		else
+			return 0;
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts);//[1, 5, 7, 10]
+	}
+}
+class MyComparator implements Comparator
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1=(Integer)obj1;
+		Integer i2=(Integer)obj2;
+		if(i1<i2)
+			return -1;
+		else if(i1>i2)
+			return 1;
+		else
+			return 0;
+	}
+}
+
+Q) Write a java program to compare two dates?
+
+import java.time.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LocalDate date1=LocalDate.now();
+		LocalDate date2=LocalDate.of(2024,10,15);
+		
+		if(date1.compareTo(date2)>0)
+			System.out.println("date1 is biggest");
+		else if(date1.compareTo(date2)<0)
+			System.out.println("date2 is biggest");
+		else
+			System.out.println("Both are same");
+	}
+}
+
+
+Map
+====
+It is not a child interface of Collection interface.
+
+If we want to represent group of individual objects in key and value pair then we need to use 
+Map interface.
+
+Key and value both must be objects.
+
+Key can't be duplicate but value can be duplicate.
+
+Each key and value pair is called single/one entry.
+
+Diagram: class46.1
+
+
+HashMap
+=========
+The underlying data structure is Hashtable.
+
+Duplicate key is not allowed but value can be duplicate.
+
+Insertion order is not preserved because it will take hash code of a key.
+
+Hetrogeneous objects are allowed for both key and value.
+
+Null insertion is possible for both key and value.
+
+ex:
+--
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashMap hm=new HashMap();
+		hm.put("one","raja");
+		hm.put("six","jose");
+		hm.put("nine","brook");
+		hm.put("five","alan");
+		System.out.println(hm);//{nine=brook, six=jose, one=raja, five=alan}
+		
+		hm.put("one","gogo");
+		System.out.println(hm);//{nine=brook, six=jose, one=gogo, five=alan}
+		
+		hm.put(10,100);
+		System.out.println(hm);//{nine=brook, six=jose, one=gogo, 10=100, five=alan}
+		
+		hm.put(null,null);
+		System.out.println(hm);//{null=null, nine=brook, six=jose, one=gogo, 10=100, five=alan}
+	}
+}
+
+LinkedHashMap
+==============
+LinkedHashMap is a child class of HashMap class.
+
+LinkedHashMap is exactly same as HashMap class with following differences.
+
+HashMap						LinkedHashMap
+------------					---------------
+The underlying data structure is Hashtable.	The underlying data structure is Hashtable and 
+						LinkedList.
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+It is introduced in 1.2v.			It is introduced in 1.4v.
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashMap lhm=new LinkedHashMap();
+		lhm.put("one","raja");
+		lhm.put("six","jose");
+		lhm.put("nine","brook");
+		lhm.put("five","alan");
+		System.out.println(lhm);//{one=raja, six=jose, nine=brook, five="alan"}
+		
+		lhm.put("one","gogo");
+		System.out.println(lhm);//{one=gogo, six=jose, nine=brook, five="alan"}
+		
+		lhm.put(10,100);
+		System.out.println(lhm);//{one=gogo, six=jose, nine=brook, five="alan", 10=100}
+		
+		lhm.put(null,null);
+		System.out.println(lhm);//{one=gogo, six=jose, nine=brook, five="alan", 10=100, null=null}
+	}
+}
+
+
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Map<String,String> map=new LinkedHashMap<String,String>();
+		map.put("one","raja");
+		map.put("two","ravi");
+		map.put("three","ramana");
+		
+		Set s=map.keySet();
+		System.out.println(s); 
+		
+		Collection c=map.values();
+		System.out.println(c); 
+		
+		Set s1=map.entrySet();
+		System.out.println(s1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

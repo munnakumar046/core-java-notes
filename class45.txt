@@ -1,0 +1,344 @@
+Q) What is the difference between ArrayList and LinkedList?
+
+ArrayList					LinkedList
+--------------					--------------
+The underlying data structure is resizable 	The underlying data structure is doubly linkedlist.	
+array or growable array.
+
+ArrayList is better for storing and accessing	LinkedList is better for manipulating the data.
+the data.
+
+Memory location for ArrayList elements are 	Memory location for LinkedList elements are not 
+contigeous.					contigeous.
+
+When ArrayList is initialized, a default 	There is no case of default capacity in LinkedList.	
+capacity 10 is assigned to it.
+
+
+Q) What is the difference between ArrayList and Vector?
+
+ArrayList						Vector
+-------------						------------
+No method is synchronized.				All methods are synchronized.
+
+At a time only one thread is allowed to operate		Multiple threads are allowed to operator 
+ArrayList object.Hence it is thread safe.		Vector object.Hence it is not thread safe.
+
+Relatively performance is low because waiting time 	Relatively performance is high because there 
+of a thread is increasing.				is no waiting threads.
+
+It is a non-legacy class.				It is a legacy class.
+
+It is introduced in 1.2v.				It is introduced in 1.0v.
+
+
+
+Q) What is the difference between Collection and Collections?
+
+Collection					Collections
+----------------				-------------
+It is a root interface for entire collection	It is a utility class.
+framework.
+
+It is used to represent group of individual 	It defines several utility methods that are operator
+objects in a single entity.			on Collection.
+
+It contains abstract methods, default methods	It contains only static methods.
+and static methods.
+
+
+
+
+Q) Write a java program to sort the string?
+
+input:
+	dog apple boy cat 
+
+output:
+	apple boy cat dog
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="dog apple boy cat";
+		
+		String[] sarr=str.split(" ");
+		
+		List<String> list=Arrays.asList(sarr);
+		
+		Collections.sort(list);
+		
+		list.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+
+
+Q) How to make ArrayList as synchronized?
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<String> list=new ArrayList<String>();
+		
+		List<String> synchronizedList = Collections.synchronizedList(list);
+		
+		synchronizedList.add("one");
+		synchronizedList.add("two");
+		synchronizedList.add("three");
+		
+		synchronizedList.forEach(element -> System.out.print(element+" "));
+	}
+}
+
+Stack
+=======
+It is a child class of Vector class.
+
+If we depend upon Last In First Out order then we need to use Stack.
+
+constructor
+-----------
+	Stack s=new Stack();
+
+methods
+--------
+1) push(E)
+---------
+	It is used to push the element to stack.
+
+2) pop() 
+----------
+	It is used to pop toppest element from stack.
+
+3) peek() 
+--------
+	It will return toppest element of stack.
+
+4) isEmpty()
+---------
+	It will check stack is empty or not.
+
+5) search(Object o)
+-----------------
+	It will return offset value if element is found otherwise it will return -1.
+
+ex:
+----
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Stack<String> s=new Stack<String>();
+		s.push("A");
+		s.push("B");
+		s.push("C");
+		System.out.println(s);//[A,B,C]
+		
+		s.pop();
+		System.out.println(s);//[A,B]
+		
+		System.out.println(s.peek());// B 
+		
+		System.out.println(s.isEmpty()); // false
+		
+		System.out.println(s.search("Z")); // -1
+		
+		System.out.println(s.search("A")); // 2
+	}
+}
+
+Q) Write a java program to check given string is balanced or not?
+
+
+input:
+	{[()]}
+
+output:
+	It is a balanced string 
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="{[()]}";
+		
+		//caller method 
+		if(isBalanced(str))
+			System.out.println("It is balanced string");
+		else
+			System.out.println("It is not balanced string");
+	
+	}
+	//callie method
+	public static boolean isBalanced(String str)
+	{
+		Stack<Character> stack=new Stack<Character>();
+		
+		for(int i=0;i<str.length();i++)
+		{
+			char ch=str.charAt(i);
+			
+			if(ch=='{' || ch=='[' || ch=='(')
+			{
+				stack.push(ch);
+			}
+			else if(ch==')' && !stack.isEmpty() && stack.peek()=='(')
+			{
+				stack.pop();
+			}
+			else if(ch==']' && !stack.isEmpty() && stack.peek()=='[')
+			{
+				stack.pop();
+			}
+			else if(ch=='}' && !stack.isEmpty() && stack.peek()=='{')
+			{
+				stack.pop();
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		return stack.isEmpty();
+	}
+}
+
+Set
+======
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are not allowed and order is not preserved then we need to use Set interface.
+
+Diagram: class45.1
+
+
+HashSet
+=======
+The underlying data structure is Hashtable.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it will take hash code of an object.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+ex:
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashSet hs=new HashSet();
+		hs.add("one");
+		hs.add("six");
+		hs.add("nine");
+		System.out.println(hs);//[nine, six, one]
+		
+		hs.add("one");
+		System.out.println(hs);//[nine, six, one]
+		
+		hs.add(10);
+		System.out.println(hs);//[nine, six, one, 10]
+		
+		hs.add(null);
+		System.out.println(hs);//[null, nine, six, one, 10]
+		
+	}
+}
+
+LinkedHashSet 
+==============
+It is a child class of HashSet class.
+
+LinkedHashSet is exactly same as HashSet class with following differences.
+
+HashSet						LinkedHashSet
+-------------					----------------
+The underlying data structure is Hashtable.	The underlying data structure is Hashtable and 
+						LinkedList.
+
+Insertion order is not preserved.		Insertion order is preserved.
+
+It is introduced in 1.2v.			It is introduced in 1.4v.
+
+ex:
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashSet lhs=new LinkedHashSet();
+		lhs.add("one");
+		lhs.add("six");
+		lhs.add("nine");
+		System.out.println(lhs);//[one, six, nine]
+		
+		lhs.add("one");
+		System.out.println(lhs);//[one, six, nine]
+		
+		lhs.add(10);
+		System.out.println(lhs);//[one, six, nine, 10]
+		
+		lhs.add(null);
+		System.out.println(lhs);//[one, six, nine, 10, null]
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

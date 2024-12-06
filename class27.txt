@@ -1,0 +1,381 @@
+Q) Write a java program to display sum of array elements?
+
+input:
+	5 8 1 3 9 2 
+
+output:
+	28
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[]  arr={5,8,1,3,9,2};
+		
+		int sum=0;
+		
+		//for each loop
+		for(int i:arr)
+		{
+			sum +=i;
+		}
+		
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program to display even element from given positive integer array?
+
+input:
+	5 8 1 3 9 2 
+
+output:
+	8 2 
+
+ex:
+	
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,8,1,3,9,2};
+		
+		//for each loop
+		for(int i:arr)
+		{
+			if(i%2==0)
+			{
+				System.out.print(i+" ");
+			}
+		}
+	}
+}
+
+
+Q) Write a java program to display number of odd elements present in array?
+
+input:
+	5 8 1 3 9 2 
+
+output:
+	4
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,8,1,3,9,2};
+		
+		int cnt=0;
+		
+		//for each loop
+		for(int i:arr)
+		{
+			if(i%2!=0)
+			{
+				cnt++;
+			}
+		}
+		
+		System.out.println(cnt);
+	}
+}
+
+Q) Write a java program to display array elements in reverse order?
+
+input:
+	5 8 1 3 9 2 
+
+output:
+	2 9 3 1 8 5 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,8,1,3,9,2};
+		
+		//reverse logic 
+		for(int i=arr.length-1;i>=0;i--)
+		{
+			System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+Q) Write a java program to display prime elements from given array?
+
+input:
+	6 2 9 7 4 3 10 5 
+
+output:
+	2 7 3 5 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3,10,5};
+		
+		//for each loop
+		for(int n:arr)
+		{
+			boolean flag=true;
+			for(int i=2;i<=n/2;i++)
+			{
+				if(n%i==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(n+" ");
+		}
+	}
+}
+
+Q) Write a java program to display array elements in sorting order?
+
+
+input:
+	6 2 9 7 4 3 
+
+output:
+	2 3 4 6 7 9 
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		Arrays.sort(arr); // 2 3 4 6 7 9 
+		
+		//for each loop
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to display array elements in sorting order without using sort() method?
+
+
+input:
+	6 2 9 7 4 3 
+
+output:
+	2 3 4 6 7 9 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		//ascending logic
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]<arr[j])
+				{
+					int temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		
+		//for each loop
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to display array elements in descending order without using sort() method?
+
+
+input:
+	6 2 9 7 4 3 
+
+output:
+	9 7 6 4 3 2  
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		//ascending logic
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]>arr[j])
+				{
+					int temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		
+		//for each loop
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+Q) Write a java program to display least element from given array?
+
+input:
+	6 2 9 7 4 3
+
+output:
+	2  
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		Arrays.sort(arr);
+		
+		System.out.println(arr[0]);
+		
+	}
+}
+
+
+Q) Write a java program to display highest element from given array?
+
+input:
+	6 2 9 7 4 3
+
+output:
+	9
+
+ex:
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		Arrays.sort(arr);
+		
+		System.out.println(arr[arr.length-1]);
+		
+	}
+}
+
+Q) Write a java program to display least element from given array without using sort() method?
+
+input:
+	6 2 9 7 4 3
+
+output:
+	2  
+
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		int small=arr[0];
+		
+		//for each loop
+		for(int i:arr)
+		{
+			if(i<small)
+			{
+				small=i;	
+			}
+		}
+		System.out.println(small);
+	}
+}
+
+
+Q) Write a java program to display highest element from given array without using sort() method?
+
+input:
+	6 2 9 7 4 3
+
+output:
+	9  
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,2,9,7,4,3};
+		
+		int big=arr[0];
+		
+		//for each loop
+		for(int i:arr)
+		{
+			if(i>big)
+			{
+				big=i;	
+			}
+		}
+		System.out.println(big);
+	}
+}
+
+Assignment
+==========
+Q) Write a java program to check given number is palindrome or not using recursion?
+
+Q) Write a java program to check given number is reverse or not using recursion?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

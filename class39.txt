@@ -1,0 +1,331 @@
+Q) Write a java program to display reverse of a string?
+
+input:
+	hello 
+
+output:
+	olleh 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+		
+		char[] carr=str.toCharArray(); // h    e   l   l   o 
+		
+		//reverse variable
+		String rev="";
+		
+		//reading reverse
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+
+output:
+	It is a palindrome string 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+		
+		char[] carr=str.toCharArray(); //r  a   c   a   r
+		
+		//reverse variable
+		String rev="";
+		
+		//reading reverse
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+}
+
+Q) Write a java program to display reverse of a sentence?
+
+Input:
+	This is java class 
+
+output:
+	class java is This 
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String[] sarr=str.split(" "); // This    is     java     class
+		
+		//reading reverse
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			System.out.print(sarr[i]+" ");
+		}
+		
+	}
+}
+
+Q) Write a java program to display reverse of a string?
+
+input:
+	This is java class
+
+output:
+	sihT si avaj ssalc 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String[] sarr=str.split(" "); // This    is     java     class
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			char[] carr=s.toCharArray(); // T   h   i   s 
+			
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				System.out.print(carr[i]);
+			}
+			
+			//space
+			System.out.print(" ");
+		}
+	}
+}
+
+
+Q) Write a java program to display the string starting with uppercase letter?
+
+input:
+	This is Java class For students
+
+output:
+	This Java For 
+
+ex:
+			
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java class For students";
+		
+		String[] sarr=str.split(" ");
+		
+		//for each loop
+		for(String s:sarr)
+		{
+			char ch=s.charAt(0);
+			
+			if(ch>='A' && ch<='Z')
+			{
+				System.out.print(s+" ");
+			}
+		}
+		
+	}
+}
+
+Q) Write a java program to check given string is anagram or not?
+
+input:
+	silent 
+	listen 
+
+output:
+	It is a anagram string 
+
+
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="silent"; 
+		String str2="listen";
+		
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+		
+		Arrays.sort(carr1); // e i l n s t 
+		Arrays.sort(carr2); // e i l n s t 
+		
+		boolean flag=true;
+		for(int i=0;i<carr1.length && i<carr2.length;i++)
+		{
+			if(carr1[i]!=carr2[i])
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is a Anagram string");
+		else
+			System.out.println("It is not a Anagram string");
+		
+	}
+}
+
+Q) Write a java program to perform right rotation of a given string?
+
+input:
+	str = ihubtalent 
+	
+	cnt = 4
+
+output:
+	talentihub
+
+ex
+---
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+		int cnt=4;
+		
+		String str1=str.substring(0,cnt);
+		
+		String str2=str.substring(cnt,str.length());
+		
+		str=str2+str1;
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to get below below output?
+
+input:
+	str = Ihubtalentstudents
+	index = 10 
+	word = for 
+
+output:
+	Ihubtalentforstudents 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="Ihubtalentstudents";
+		int index=10;
+		String word="for"; 
+		
+		String word1=str.substring(0,index);
+		
+		String word2=str.substring(index,str.length());
+		
+		str = word1+word+word2;
+		
+		System.out.println(str);
+	}
+}
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	XYZ
+	
+output:
+	XY
+	XZ
+	YX
+	YZ
+	ZX
+	ZY
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="XYZ";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			for(int j=0;j<str.length();j++)
+			{
+				if(i!=j)
+				{
+					System.out.println(str.charAt(i)+""+str.charAt(j));
+				}
+			}
+		}
+	}
+}
+
+Assignment
+===========
+Q) Write a java program to display palindrome strings?
+
+input:
+	racar is madam for java 
+
+output:
+	racar madam 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

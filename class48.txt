@@ -1,0 +1,467 @@
+Multithreading
+===============
+
+Q) What is the difference between Thread and Process?
+
+Thread 
+------
+	It is a leight weight sub process.
+
+	We can run multiple threads concurently.
+
+	One thread can communicate with another thread.
+
+Process
+-------
+	It is a collection of threads.
+
+	We can run multiple process concurently.
+
+	One process can't communicate with another process.
+
+
+
+Multitasking
+============
+Executing several task simultenously such concept is called multitasking.
+
+We have two types of multitasking.
+
+1) Thread based multitasking  
+
+2) Process based multitasking 
+
+1) Thread based multitasking 
+------------------------------
+Executing several task simultenously where each task is a same part of a program. 
+
+It is best suitable for programmatic level.
+
+
+2) Process based multitasking
+---------------------------
+Executiong several task simultenously where each task is a independent process.
+
+It is best suitable for OS level.
+
+
+MultiThreading
+===============
+Executing several threads simultenously such concept is called multithreading.
+
+In multithreading only 10% of work should be done by a programmer and 90% of work will be done by JAVA API.
+
+The main important application area of multithreading are.
+
+1) To implements multi media graphics.
+
+2) To develop video games.
+
+3) To develop animations.
+
+
+Ways to start a thread in java
+=============================
+There are two ways to start a thread in java.
+
+1) By extending Thread class 
+
+2) By implementing Runnable interface 
+
+
+1) By extending Thread class
+----------------------------
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantitate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread 
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case1: Thread Schedular 
+-----------------------
+If multiple threads are waiting for execution which thread has to be executed will decided by thread schedular.
+
+What algorithm, behaviour, mechanism used by thread schedular is depends upon JVM vendor.
+
+Hence we can't expect any execution order or exact output in multithreading.
+
+
+case2: Difference between t.start() method and t.run() method
+--------------------------------------------------------------
+If we invoke t.start() method then a new thread will be created which is responsible to execute run() method automatically.
+
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantitate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread 
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+If we invoke t.run() method then no new thread will be created but run() method will execute just like normal method.
+
+ex:
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantitate a thread 
+		MyThread t=new MyThread();
+		
+		//no new thread
+		t.run();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case3: If we won't override run() method 
+-----------------------------------
+If we won't override run() method then Thread class run() method will execute automatically.
+
+Thread class run() method is empty implementation.Hence we won't get any output from child thread.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantitate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case4: If we overload run() method 
+----------------------------------
+If we overload run() method then Thread class start() method always execute run() method with zero arguments only.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run(int i)
+	{
+		System.out.println("int-arg method");
+	}
+	public void run()
+	{
+		System.out.println("0-arg method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//instantitate a thread 
+		MyThread t=new MyThread();
+		
+		//start a thread
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case 5: Life cycle of a thread
+-------------------------------
+Diagram: class48.1
+
+Once if we create thread then our thread will be in new or born state.
+
+Once if we call t.start() method our thread goes to ready/runnable state.
+
+If thread schedular allocates to CPU then our thread enters to running state.
+
+Once the run() method execution is completed then our thread goes to dead state.
+
+
+2) By implementing Runnable interface 
+---------------------------------------
+class MyRunnable implements Runnable 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MyRunnable r=new MyRunnable();
+		
+		Thread t=new Thread(r); // r is a targatable interface 
+		
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+
+Setting and getting name of a thread
+=====================================
+In java, every thread has a name. Explicitly provided by the programmer or automatically generated by the JVM.
+
+We have following methods to set and get name of a thread.
+ex:
+	public final void setName(String name);
+	public final String getName();
+
+ex:
+---
+class MyThread extends Thread 
+{
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Thread.currentThread().getName());// main
+		
+		MyThread t=new MyThread();
+		System.out.println(t.getName());//Thread-0
+		
+		Thread.currentThread().setName("Parent-Thread");
+		System.out.println(Thread.currentThread().getName());//Parent-Thread
+		
+		t.setName("Child-Thread");
+		System.out.println(t.getName());//Child-Thread
+	}
+}
+
+
+Thread priority
+================
+In java, every thread has a priority explicitly provided by the programmer and automatically generated by JVM.
+
+The valid range of thread priority is 1 to 10. Where 1 is a least priority and 10 is a highest priority.
+
+If we take more then 10 priority then we will get IllegalArgumentException.
+
+Thread class defines following standard constants as thread priority.
+ex:
+	Thread.MAX_PRIORITY - 10
+	Thread.NORM_PRIORITY - 5 
+	Thread.MIN_PRIORITY - 1 
+
+We don't have such constants like LOW_PRIORITY and HIGH_PRIORITY.
+
+A thread which is having highest priority will be executed first.
+
+If multiple threads having same priority then we can't expect any execution order.
+
+Thread schedular uses thread priorities while allocating to CPU.
+
+We have following methods to set and get thread priority.
+ex:
+	public final void setPriority(int priority)
+	public final int getPriority()
+
+ex
+---
+class MyThread extends Thread 
+{
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Thread.currentThread().getPriority());// 5
+		
+		MyThread t=new MyThread();
+		System.out.println(t.getPriority());//5 
+		
+		Thread.currentThread().setPriority(10);
+		System.out.println(Thread.currentThread().getPriority());//10
+		
+		t.setPriority(4);
+		System.out.println(t.getPriority());//4
+		
+		//t.setPriority(11);//R.E IllegalArgumentException
+	}
+}
+
+
+Daemon Thread
+=============
+Daemon thread is a service provider thread which provides services to user threads.
+
+Life of daemon thread is depends upon user threads because when user threads died then daemon thread will die automatically.
+
+There are many daemon thread are running internally like Garbage collector , finalizer and etc.
+
+We can start a daemon thread by using setDeamon(true) method.
+
+To check a thread is a daemon or not we will use isDaemon() method.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(Thread.currentThread().isDaemon());
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MyThread t=new MyThread();
+		
+		t.setDaemon(true);
+		
+		t.start();
+		
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+
+Assignment
+===========
+class Employee
+{
+	private int empId;
+	private String empName;
+	private double empSal;
+
+	//parameterized constructor
+
+	//setter and getter methods
+}
+interface   IEmployee
+{
+        public   List<Employee>   getAllEmployees();
+}
+
+class EmployeeImpl implements IEmployee
+{
+	public   List<Employee>   getAllEmployees()
+	{
+		List<Employee> list=new ArrayList<Employee>();
+
+		list.add(new Employee(101,'raja',1000d)); 
+		list.add(new Employee(102,'ravi',2000d));
+		list.add(new Employee(103,'ramana',3000d));
+
+		return list;	
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

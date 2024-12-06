@@ -1,0 +1,496 @@
+3) local block
+================
+Local block is used to initialize the local variables.
+
+Local block must and should declare inside the methods.
+
+Local block will execute just like a normal statement.
+
+syntax:
+------
+	//local block
+	{
+		-
+		- //set of statements
+		-
+	}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		
+		//local block
+		{
+			System.out.println("stmt2");
+		}
+		
+		System.out.println("stmt3");
+	}
+}
+o/p:
+	stmt1
+	stmt2
+	stmt3
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//local variable
+		int i;
+		
+		//local block
+		{
+			i=300;
+		}
+		
+		System.out.println(i); // 300
+	}
+}
+
+Q) Can we execute java program without main method?
+
+Yes, Till 1.6 version it is possible to execute java program without main method using static block.But from 1.7 version onwards it is not possible to execute java program without main method.
+
+ex:
+---
+class Test  
+{
+	//static block
+	static
+	{
+		System.out.println("Hello World");
+		System.exit(0);
+	}
+}
+
+
+Operators
+==========
+Operator is a symbol which is used to perform some operations on operands.
+ex:
+	c = a + b;
+
+	Here + and = are operators
+	Here a, b and c are operands.
+
+It can be arithmetic operation, logical operation, bitwise operation , relational operation and etc.
+
+We have following list of operators in java.
+
+1) Assignment operators 
+
+2) Ternary operators 
+
+3) Logical operators 
+
+4) Bitwise operators 
+
+5) Arithmetic operators
+
+6) Relational operators 
+
+7) Shift operators
+
+8) Unary operators 
+
+1) Assignment operators 
+-----------------------
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+		
+		i=20;
+		
+		i=30;
+		
+		System.out.println(i);//30
+	}
+}
+
+Note:
+-----
+	Reinitialization is possible in java.
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		final int i=10;
+		
+		i=20;
+		
+		i=30;
+		
+		System.out.println(i);//C.T.E 
+	}
+}
+Note:
+-----
+	Final variables can't be modified.
+
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=1,2,3,4,5;
+		System.out.println(i); //C.T.E 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	//global variable
+	static int i=10;
+	
+	public static void main(String[] args)
+	{
+		//local variable
+		int i=20;
+		
+		System.out.println(i); // 20
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+		
+		i+=20; // i = i + 20;
+		
+		System.out.println(i); // 30 
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+		
+		i-=20; // i = i - 20;
+		
+		System.out.println(i); // -10
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+		
+		i*=20; // i = i * 20;
+		
+		System.out.println(i); // 200
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=5;
+		
+		i/=2; // i = i / 2;
+		
+		System.out.println(i);  //2
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=5;
+		
+		i/=20;
+		
+		System.out.println(i);  //0
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=5;
+		
+		i%=2;
+		
+		System.out.println(i);  //1
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=5;
+		
+		i%=20;
+		
+		System.out.println(i);  // 5
+		
+	}
+}
+
+2) Ternary operator
+--------------------
+
+syntax:
+------
+	(condition)?value1:value2;
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		boolean b=(5>2)?true:false;
+		System.out.println(b);//true  
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=(5>20)?1:0;
+		System.out.println(i);//0  
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		String s=(true)?"Hi":"Bye";
+		System.out.println(s); // Hi
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		char ch=(false)?'t':'f';
+		System.out.println(ch); // f 
+	}
+}
+
+
+Q) Write a java program to find out greatest of two numbers?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		
+		//logic
+		int max=(a>b)?a:b;
+		
+		System.out.println("Greatest of two numbers is ="+max);
+	}
+}
+
+
+Q) Write a java program to find out greatest of three numbers?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+		
+		System.out.println("Enter the third number :");
+		int c=sc.nextInt();
+		
+		//logic
+		int max=(a>b)?((a>c)?a:c):((b>c)?b:c);
+		
+		System.out.println("Greatest of three numbers is ="+max);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
